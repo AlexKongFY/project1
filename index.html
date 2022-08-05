@@ -4,10 +4,100 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <script type="module" src="/main.js"></script>
+
+    <title>Othello Game</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <div id="board">
+      <!-- Game Board -->
+      <div id="board-game">
+        <!-- Game board is a 8 by 8 square grid -->
+        <!-- Row A -->
+        <div class="board-cell" id="a1"></div>
+        <div class="board-cell" id="a2"></div>
+        <div class="board-cell" id="a3"></div>
+        <div class="board-cell" id="a4"></div>
+        <div class="board-cell" id="a5"></div>
+        <div class="board-cell" id="a6"></div>
+        <div class="board-cell" id="a7"></div>
+        <div class="board-cell" id="a8"></div>
+        <!-- Row B -->
+        <div class="board-cell" id="b1"></div>
+        <div class="board-cell" id="b2"></div>
+        <div class="board-cell" id="b3"></div>
+        <div class="board-cell" id="b4"></div>
+        <div class="board-cell" id="b5"></div>
+        <div class="board-cell" id="b6"></div>
+        <div class="board-cell" id="b7"></div>
+        <div class="board-cell" id="b8"></div>
+        <!-- Row C -->
+        <div class="board-cell" id="c1"></div>
+        <div class="board-cell" id="c2"></div>
+        <div class="board-cell" id="c3"></div>
+        <div class="board-cell" id="c4"></div>
+        <div class="board-cell" id="c5"></div>
+        <div class="board-cell" id="c6"></div>
+        <div class="board-cell" id="c7"></div>
+        <div class="board-cell" id="c8"></div>
+        <!-- Row D -->
+        <div class="board-cell" id="d1"></div>
+        <div class="board-cell" id="d2"></div>
+        <div class="board-cell" id="d3"></div>
+        <div class="board-cell" id="d4"></div>
+        <div class="board-cell" id="d5"></div>
+        <div class="board-cell" id="d6"></div>
+        <div class="board-cell" id="d7"></div>
+        <div class="board-cell" id="d8"></div>
+        <!-- Row E -->
+        <div class="board-cell" id="e1"></div>
+        <div class="board-cell" id="e2"></div>
+        <div class="board-cell" id="e3"></div>
+        <div class="board-cell" id="e4"></div>
+        <div class="board-cell" id="e5"></div>
+        <div class="board-cell" id="e6"></div>
+        <div class="board-cell" id="e7"></div>
+        <div class="board-cell" id="e8"></div>
+        <!-- Row F -->
+        <div class="board-cell" id="f1"></div>
+        <div class="board-cell" id="f2"></div>
+        <div class="board-cell" id="f3"></div>
+        <div class="board-cell" id="f4"></div>
+        <div class="board-cell" id="f5"></div>
+        <div class="board-cell" id="f6"></div>
+        <div class="board-cell" id="f7"></div>
+        <div class="board-cell" id="f8"></div>
+        <!-- Row G -->
+        <div class="board-cell" id="g1"></div>
+        <div class="board-cell" id="g2"></div>
+        <div class="board-cell" id="g3"></div>
+        <div class="board-cell" id="g4"></div>
+        <div class="board-cell" id="g5"></div>
+        <div class="board-cell" id="g6"></div>
+        <div class="board-cell" id="g7"></div>
+        <div class="board-cell" id="g8"></div>
+        <!-- Row H -->
+        <div class="board-cell" id="h1"></div>
+        <div class="board-cell" id="h2"></div>
+        <div class="board-cell" id="h3"></div>
+        <div class="board-cell" id="h4"></div>
+        <div class="board-cell" id="h5"></div>
+        <div class="board-cell" id="h6"></div>
+        <div class="board-cell" id="h7"></div>
+        <div class="board-cell" id="h8"></div>
+      </div>
+      <div class="score-board">
+        <div class="badge" id="user-label">Blacks</div>
+        <div class="badge" id="computer-label">Whites</div>
+        <span >0</span>:<span>0</span>
+      </div>
+      <div class="game-controls">
+      <button class="btn-start">Start Game</button>
+      <button class="btn-reset">Reset</button>
+      </div>
+      <div class="game-message"></div>
+
+    </div>
+    
   </body>
 </html>

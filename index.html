@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/main.js"></script>
-
+    <script type="module" src="/app.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Othello Game</title>
   </head>
   <body>
+    <h1>Othello Game</h1>
+    <p> A single player game against AI </p>
     <div id="board">
       <!-- Game Board -->
       <div id="board-game">
@@ -86,10 +88,18 @@
         <div class="board-cell" id="h7"></div>
         <div class="board-cell" id="h8"></div>
       </div>
+      <!-- score-board -->
       <div class="score-board">
-        <div class="badge" id="user-label">Blacks</div>
-        <div class="badge" id="computer-label">Whites</div>
-        <span >0</span>:<span>0</span>
+        <!-- user is blacks & computer is whites -->
+        <div class="player">
+          <span class="badge">Blacks :</span>
+          <span class="badge" id="player-score">0</span>
+        </div>
+        
+        <div class="computer">
+          <span class="badge">Whites :</span>
+        <span class="badge" id="computer-score">0</span>
+        </div>
       </div>
       <div class="game-controls">
       <button class="btn-start">Start Game</button>

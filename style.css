@@ -47,6 +47,20 @@ body {
     font-size: 20px;
 }
 
+.black-piece {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: black;
+}
+
+.white-piece {
+    width: 49px;
+    height: 49px;
+    border-radius: 100%;
+    border: 1px solid black;
+}
+
 button {
     font-size: 15px;
     width: 100px;

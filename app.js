@@ -2,8 +2,9 @@ console.log("game testing");
 
 let container = document.getElementById("board-container");
 let gameBoard = document.getElementById("board-game");
+
 let totalPiece = 64;
-let currentPlayer = "black"; // first player is black then white;
+let currentPlayer = "black";
 
 // create the board
 
@@ -19,34 +20,28 @@ for (let cell = 1; cell <= totalPiece; cell++) {
 
 // click event listener on each square to test the board before drawing the discs
 // create a function for each turn for each player (black first & then white)
+// click and add a new black disc or white disc
+// first player is black then white
 
-// click and add a new black disc
-const getBlackPiece = () => {
+const getNewPiece = () => {
   for (let num = 1; num <= totalPiece; num++) {
     let numId = num;
     let clickSquare = document.getElementById(`${numId}`);
     clickSquare.addEventListener("click", (event) => {
-      event.target.classList.add("black-piece");
+      if (currentPlayer === "black") {
+        event.target.classList.add("black-piece");
+        currentPlayer = "white";
+        console.log(currentPlayer);
+      } else if (currentPlayer === "white") {
+        event.target.classList.add("white-piece");
+        currentPlayer = "black";
+        console.log(currentPlayer);
+      }
     });
   }
 };
 
-// click and add a new white disc
-const getWhitePiece = () => {
-  for (let num = 1; num <= totalPiece; num++) {
-    let numId = num;
-    let clickSquare = document.getElementById(`${numId}`);
-    clickSquare.addEventListener("click", (event) => {
-      event.target.classList.add("white-piece");
-    });
-  }
-};
-
-if (currentPlayer !== "black") {
-  getWhitePiece();
-} else if (currentPlayer !== "white") {
-  getBlackPiece();
-}
+getNewPiece();
 
 // Draw fixed white and black pieces before starting the game
 let fixedDisc1 = document.getElementById("28");

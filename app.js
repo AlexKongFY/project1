@@ -1,5 +1,3 @@
-import $ from "jquery";
-console.log($);
 console.log("game testing");
 
 let container = document.getElementById("board-container");
@@ -30,26 +28,87 @@ document.getElementById("36").classList.add("square");
 document.getElementById("37").setAttribute("class", "black-piece");
 document.getElementById("37").classList.add("square");
 
+// check disc in 4 directions => left, right, top and bottom
+
+const changeDisc = (id) => {
+  console.log(document.getElementById("35").classList.contains("black-piece"));
+  if (
+    document.getElementById(id).classList.contains("black-piece") &&
+    document.getElementById(`${id + 2}`).classList.contains("black-piece")
+  ) {
+    document.getElementById(`${id + 1}`).classList.toggle("white-piece");
+    document.getElementById(`${id + 1}`).classList.add("black-piece");
+  } else if (
+    document.getElementById(id).classList.contains("black-piece") &&
+    document.getElementById(`${id - 2}`).classList.contains("black-piece")
+  ) {
+    document.getElementById(`${id - 1}`).classList.toggle("white-piece");
+    document.getElementById(`${id - 1}`).classList.add("black-piece");
+  } else if (
+    document.getElementById(id).classList.contains("black-piece") &&
+    document.getElementById(`${id + 16}`).classList.contains("black-piece")
+  ) {
+    document.getElementById(`${id + 8}`).classList.toggle("white-piece");
+    document.getElementById(`${id + 8}`).classList.add("black-piece");
+  } else if (
+    document.getElementById(id).classList.contains("black-piece") &&
+    document.getElementById(`${id - 16}`).classList.contains("black-piece")
+  ) {
+    document.getElementById(`${id - 8}`).classList.toggle("white-piece");
+    document.getElementById(`${id - 8}`).classList.add("black-piece");
+  } else if (
+    document.getElementById(id).classList.contains("white-piece") &&
+    document.getElementById(`${id + 2}`).classList.contains("white-piece")
+  ) {
+    document.getElementById(`${id + 1}`).classList.toggle("black-piece");
+    document.getElementById(`${id + 1}`).classList.add("white-piece");
+  } else if (
+    document.getElementById(id).classList.contains("white-piece") &&
+    document.getElementById(`${id - 2}`).classList.contains("white-piece")
+  ) {
+    document.getElementById(`${id - 1}`).classList.toggle("black-piece");
+    document.getElementById(`${id - 1}`).classList.add("white-piece");
+  } else if (
+    document.getElementById(id).classList.contains("white-piece") &&
+    document.getElementById(`${id + 16}`).classList.contains("white-piece")
+  ) {
+    document.getElementById(`${id + 8}`).classList.toggle("black-piece");
+    document.getElementById(`${id + 8}`).classList.add("white-piece");
+  } else if (
+    document.getElementById(id).classList.contains("white-piece") &&
+    document.getElementById(`${id - 16}`).classList.contains("white-piece")
+  ) {
+    document.getElementById(`${id - 8}`).classList.toggle("black-piece");
+    document.getElementById(`${id - 8}`).classList.add("white-piece");
+  }
+};
+
 // click event listener on each square to test the board before drawing the discs
 // create a function for each turn for each player (black first & then white)
 // click and add a new black disc or white disc
 // changing turns let first player is black then white
 
-for (let num = 1; num <= totalPiece; num++) {
-  let numId = num;
-  let clickSquare = document.getElementById(`${numId}`);
+const createNewDiscs = () => {
+  for (let num = 1; num <= totalPiece; num++) {
+    let clickSquare = document.getElementById(`${num}`);
 
-  clickSquare.addEventListener("click", (event) => {
-    if (currentPlayer === "black") {
-      event.target.classList.add("black-piece");
-      currentPlayer = "white";
-    } else if (currentPlayer === "white") {
-      event.target.classList.add("white-piece");
-      currentPlayer = "black";
-    }
-  });
-}
+    clickSquare.addEventListener("click", (event) => {
+      if (currentPlayer === "black") {
+        event.target.classList.add("black-piece");
+        currentPlayer = "white";
+      } else if (currentPlayer === "white") {
+        event.target.classList.add("white-piece");
+        currentPlayer = "black";
+      }
+      changeDisc(num);
+    });
+  }
+};
 
+createNewDiscs();
+
+// let piece = document.getElementById("35");
+// piece.addEventListener("click", changeDisc());
 // ok so far for the code.
 
 // clickSquare();
@@ -74,15 +133,24 @@ for (let num = 1; num <= totalPiece; num++) {
 // each class square got div and each square have an id
 // piece are css in class-item
 
-if ($("#37").hasClass("black-piece") === $("37 - 2").hasClass("black-piece")) {
-  $("#36").removeClass("white-piece");
-  // document.getElementById("36").getAttribute("white-piece");
-  // document.getElementById("36").removeAttribute("white-piece");
-  // document.getElementById("36").classList.replace("white-piece", "black-piece");
-  // document.getElementById("36").classList.remove("white-piece");
-  // document.getElementById("36").classList.toggle("white-piece");
-  $("#36").addClass("black-piece");
-}
+// $("#37").on("click", () => {
+//   if ($("#37").hasClass("black-piece") && $("#35").hasClass("black-piece")) {
+//     $("#36").removeClass("white-piece");
+//     $("#36").addClass("black-piece");
+//   }
+// });
+
+// let flipDisc = document.getElementById("#37");
+
+// if ($("#37").hasClass("black-piece") && $("#35").hasClass("black-piece")) {
+//   $("#36").removeClass("white-piece");
+// document.getElementById("36").getAttribute("white-piece");
+// document.getElementById("36").removeAttribute("white-piece");
+// document.getElementById("36").classList.replace("white-piece", "black-piece");
+// document.getElementById("36").classList.remove("white-piece");
+// document.getElementById("36").classList.toggle("white-piece");
+//   $("#36").addClass("black-piece");
+// }
 
 // if (
 //   document.getElementById("37").classList.contains("black-piece") ===

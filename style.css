@@ -28,21 +28,6 @@ body {
     margin: 0 auto;
 }
 
-/* css board layer(disc pieces) that cover on top of the game board */
-/* .board-layer {
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 480px;
-    height: 480px;
-    background-color: black ;
-    opacity: 80%;
-    display: none;
-} */
-
-
-
-
 /* css for the square */
 .square {
     width: 60px;

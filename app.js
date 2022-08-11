@@ -1,5 +1,7 @@
 console.log("game testing");
 
+// Initial declarations for the variables
+
 let container = document.getElementById("board-container");
 let gameBoard = document.getElementById("board-game");
 
@@ -29,7 +31,6 @@ document.getElementById("37").setAttribute("class", "black-piece");
 document.getElementById("37").classList.add("square");
 
 // check disc in 4 directions => left, right, top and bottom
-
 const changeDisc = (id) => {
   if (
     document.getElementById(id).classList.contains("black-piece") &&
@@ -42,6 +43,8 @@ const changeDisc = (id) => {
     document.getElementById(`${id - 2}`).classList.contains("black-piece")
   ) {
     document.getElementById(`${id - 1}`).classList.toggle("white-piece");
+    document.getElementById(`${id - 2}`).classList.toggle("white-piece");
+
     document.getElementById(`${id - 1}`).classList.add("black-piece");
   } else if (
     document.getElementById(id).classList.contains("black-piece") &&
@@ -80,6 +83,7 @@ const changeDisc = (id) => {
     document.getElementById(`${id - 8}`).classList.toggle("black-piece");
     document.getElementById(`${id - 8}`).classList.add("white-piece");
   } else {
+    console.log("near edges");
     return false;
   }
 };
@@ -137,6 +141,7 @@ const checkDiscLocation = (id) => {
   ) {
     return true;
   } else {
+    console.log("can't place piece");
     return false;
   }
 };
@@ -152,13 +157,15 @@ const createNewDiscs = () => {
 
     clickSquare.addEventListener("click", (event) => {
       if (currentPlayer === "black") {
-        checkDiscLocation(num);
-        event.target.classList.add("black-piece");
-        currentPlayer = "white";
+        if (checkDiscLocation(num)) {
+          event.target.classList.add("black-piece");
+          currentPlayer = "white";
+        }
       } else if (currentPlayer === "white") {
-        checkDiscLocation(num);
-        event.target.classList.add("white-piece");
-        currentPlayer = "black";
+        if (checkDiscLocation(num)) {
+          event.target.classList.add("white-piece");
+          currentPlayer = "black";
+        }
       }
       changeDisc(num);
     });
@@ -167,17 +174,11 @@ const createNewDiscs = () => {
 
 createNewDiscs();
 
-// track scores of black and white pieces
-// const checkPieceCount = () => {
-//  for (let num = 1; num <= totalPiece; num++) {
-//   let black = 0;
-//   let white = 0;
-//   black = totalPiece[num].classList.contains("black-piece");
-//   white = totalPiece[num].classList.contains("white-piece");
-//   black++;
-//   white++;
-//  }
-// }
+//track scores of black and white pieces
+
+// let black = document.querySelectorAll(".black-piece").length;
+// let white = document.querySelectorAll(".white-piece").length;
+
 // let blackScore = document.getElementById("black-score");
 // blackScore.innerHTML = `${black}`;
 // let whiteScore = document.getElementById("white-score");

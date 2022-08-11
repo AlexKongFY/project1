@@ -24,12 +24,12 @@ body {
     width: 480px;
     height: 480px;
     background-color: darkseagreen;
-    border: 1px solid brown;
+    border: 1px solid black;
     margin: 0 auto;
 }
 
 /* css board layer(disc pieces) that cover on top of the game board */
-.board-layer {
+/* .board-layer {
     z-index: 1;
     top: 0;
     left: 0;
@@ -38,7 +38,7 @@ body {
     background-color: black ;
     opacity: 80%;
     display: none;
-}
+} */
 
 
 
@@ -49,7 +49,7 @@ body {
     height: 60px;
     background-color: darkseagreen;
     box-sizing: border-box;
-    border: 1px solid brown;
+    border: 1px solid black;
     
 }
 
@@ -73,7 +73,7 @@ body {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: black;
+    background-color: black !important;
     
 }
 
@@ -82,5 +82,4 @@ body {
     height: 60px;
     border-radius: 50%;
     background-color: white;
-    
 }
